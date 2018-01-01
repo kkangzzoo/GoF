@@ -104,8 +104,8 @@ public:
 			return Application::CreateDocument(docType);
 };
 
-int main() {
-	AnotherApplication another;
-	another.NewDocument("input.dat");
-	return 0;
-}
+//int main() {
+//	AnotherApplication another;
+//	another.NewDocument("input.dat");
+//	return 0;
+//}
