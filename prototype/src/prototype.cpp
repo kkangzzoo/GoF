@@ -20,6 +20,7 @@ public:
 		x_=x; y_=y;
 	}
 
+
 private:
 	int x_, y_;
 };
