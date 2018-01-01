@@ -15,6 +15,7 @@ using namespace std;
 class Document{
 public:
 	virtual bool Open(char* pFileName) =0;
+
 };
 
 class HwpDocument : public Document{
