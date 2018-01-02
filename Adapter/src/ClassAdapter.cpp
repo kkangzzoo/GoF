@@ -6,6 +6,8 @@
  *      Description: Object Adapter 패턴에 의한 TextShape 클래스의 구현 및 활용 예
  *      				TextShape클래스를 정의하되 Shape 클래스와 TextView 클래스로부터 동시에 상속.
  *      				인터페이스는 외부에 숨겨질 수 있게 private로 상속.
+ *
+ *      				다중상속이 가능한 경우만 사용 가능. > 인터페이스는 public, 내부 구현은 private
  */
 
 
