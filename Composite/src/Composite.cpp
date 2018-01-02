@@ -3,9 +3,11 @@
 // Author      : kkangzzoo
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Composite패턴
+// Description : Composite패턴  -> 객체는 트리구조로 생성됨.
 //				   1.기본 객체에 대한 클래스들과 구성 객체에 대한 클래스가 동일한 상속 구조 아래에 둔다.
 //				   2. 기본 객체에 대한 클래스와 구성 객체에 대한 클래스를 공통으로 대표할 수 있는 클래스를 구성 객체가 참조하도록 한다.
+//
+//				   목적> client입장에서 기본 객체와 구성 객체를 특별한 구분없이 사용.
 //============================================================================
 
 #include <iostream>
@@ -17,7 +19,7 @@ using namespace std;
 class Graphic{
 public:
 	virtual void Draw()=0;
-	virtual void Add(Graphic* pObj){}
+	virtual void Add(Graphic* pObj){} //triangle, rectangle에서 무조건 구현을 하지 않기 위해 pure로 정의 x
 	virtual void Remove(Graphic* pObj){}
 	virtual Graphic* GetChild(int nth){ return 0;}
 };
@@ -44,7 +46,7 @@ public:
 	}
 };
 
-class ComposedGraphic: public Graphic{
+class ComposedGraphic: public Graphic{  //인터페이스
 public:
 	void Draw(){
 		list<Graphic*>::iterator iter1;
@@ -62,7 +64,7 @@ public:
 		}
 	}
 
-	Graphic* GetChild(int nth){
+	Graphic* GetChild(int nth){ //외부에서 원할 경우 객체를 구성하는 세부 객체를 찾을 수 있음.
 		int i;
 		list<Graphic*>::iterator iter1;
 		for(i=0, iter1=components_.begin(); iter1!=components_.end(); iter1++, i++){
