@@ -22,6 +22,7 @@ public:
 	virtual Graphic* GetChild(int nth){ return 0;}
 };
 
+
 class Line: public Graphic{
 public:
 	void Draw(){
