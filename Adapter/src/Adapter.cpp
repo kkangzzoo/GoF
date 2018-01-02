@@ -15,6 +15,7 @@ public:
 		x1_=x1; y1_=y1; x2_=x2; y2_=y2;
 	}
 
+
 	void Draw(){}
 
 private:
