@@ -14,6 +14,7 @@ using namespace std;
 #define SIDE_DIRECTION 2
 #define REAR_DIRECTION 4
 
+
 class Item{
 public:
 	Item(int dir){ direction_=dir;}
