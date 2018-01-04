@@ -107,6 +107,7 @@ protected:
 
 EnemyImage* EnemyDieImg::pInstance_=0;
 
+
 class Enemy{
 public:
 	Enemy(int x, int y){
