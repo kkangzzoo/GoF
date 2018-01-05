@@ -7,7 +7,6 @@
  *
  */
 
-
 #include <iostream>
 #include <string>
 
@@ -49,5 +48,5 @@ private:
 
 int main(){
 	ImagePtr image = ImagePtr("anImageFileName");
-	image->Draw(Point(50,100));
+	image->Draw(Point(50,100)); //(image.operator->())->Draw(Point(50,100))
 }
