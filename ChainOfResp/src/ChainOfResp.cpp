@@ -3,7 +3,8 @@
 // Author      : kkangzzoo
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : 객체들간의 관계에 의해 체인을 고성해두고 특정 객체에게 요청이 전달될 경우, 해당 객체가 요청을 처리하지 못하면 체인 상에 있는 다른 객체에게
+//					요청을 대신 처맇게 하는 방식.
 //============================================================================
 
 #include <iostream>
@@ -88,5 +89,7 @@ int main() {
 	Application *pApp=new Application("Application Help");
 	Dialog* pDialog=new Dialog(pApp, "Dialog Help");
 	Button* pButton=new Button(pDialog);
+
+	pButton->HandleHelp();
 	return 0;
 }
