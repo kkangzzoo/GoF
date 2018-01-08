@@ -12,6 +12,7 @@ using namespace std;
 #define DEFAULT_REQUEST 0
 #define HELP_REQUEST 1
 #define PRINT_REQUEST 2
+#define PREVIEW_REQUEST 3
 
 class Request{
 public:
@@ -22,6 +23,9 @@ class HelpRequest : public Request{
 };
 class PrintRequest : public Request{
 	virtual int GetKint(){ return PRINT_REQUEST; }
+};
+class PreviewRequest : public Request{
+	virtual int GetKint(){ return PREVIEW_REQUEST; }
 };
 
 class Handler{
@@ -37,6 +41,23 @@ public :
 			break;
 		default:
 			cout<<"Default Processing"<<endl;
+		}
+	}
+
+private:
+	Handler* pSuccessor_;
+};
+
+class ExtendedHandler : public Handler{
+public :
+	Handler(Handler* pObj) : pSuccessor_(pObj){}
+	virtual void HandleRequest(Request *pReq){
+		switch(pReq->GetKint()){
+		case PREVIEW_REQUEST:
+			cout<<"PreviewRequest Processing"<<endl;
+			break;
+		default:
+			Handler::HandleRequest(pReq);
 		}
 	}
 
