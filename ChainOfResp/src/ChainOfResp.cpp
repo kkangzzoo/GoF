@@ -85,11 +85,11 @@ public:
 	}
 };
 
-int main() {
-	Application *pApp=new Application("Application Help");
-	Dialog* pDialog=new Dialog(pApp, "Dialog Help");
-	Button* pButton=new Button(pDialog);
-
-	pButton->HandleHelp();
-	return 0;
-}
+//int main() {
+//	Application *pApp=new Application("Application Help");
+//	Dialog* pDialog=new Dialog(pApp, "Dialog Help");
+//	Button* pButton=new Button(pDialog);
+//
+//	pButton->HandleHelp();
+//	return 0;
+//}
