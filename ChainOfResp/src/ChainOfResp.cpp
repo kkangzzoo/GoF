@@ -11,7 +11,6 @@
 
 using namespace std;
 
-
 class HelpHandler{
 public:
 	HelpHandler(HelpHandler* pObj=0, string helpMsg=""){
