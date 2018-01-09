@@ -5,6 +5,9 @@
  *      Author: daum
  */
 #include <iostream>
+#include <cstdlib>
+#include <cstring>
+
 using namespace std;
 
 class FunctorBase { //일반함수 또는 멤버함수에 대한 포인터와 멤버 함수의 경우 객체에 대한 포인터를 데이터 멤버로 저장, 관리할 수 있게 정의된 함수.
@@ -34,7 +37,7 @@ public:
 class Functor0 : protected FunctorBase{  //하위 클래스에 의해서만 생성 가능.
 public:
 	Functor0(DummyInit * = 0){ }
-	void operator() () const { thunk(*this); }
+	void operator() ( ) const { thunk(*this); }
 	FunctorBase::operator int;
 protected:
 	typedef void (*Thunk) (const FunctorBase&);
@@ -47,8 +50,8 @@ template<class P1>
 class Functor1: protected FunctorBase {
 public:
 	Functor1(DummyInit * = 0) {}
-	void operator()(P1 P1) const {
-		thunk(*this, P1);
+	void operator()(P1 p1) const {
+		thunk(*this, p1);
 	}
 	FunctorBase::operator int;
 protected:
@@ -82,7 +85,7 @@ public:
 template <class P1, class Func>
 class FunctionTranslator1 : public Functor1<P1>{
 public:
-	FunctionTranslator1(Func f): Functor1(thunk, 0, (const void*)f, 0){}
+	FunctionTranslator1(Func f): Functor1<P1>(thunk, 0, (const void*)f, 0){}
 	static void thunk(const FunctorBase &ftor, P1 p1){
 		(Func (ftor.func))(p1);
 	}
@@ -112,7 +115,7 @@ makeFunctor(Functor0 *, TRT (*f)()){
 
 template <class Callee, class TRT, class CallType>
 inline MemberTranslator0<Callee, TRT(CallType::*)()>
-makeFunctor(Functor0 *, Callee &c, TRT(CallType::* const &f)){
+makeFunctor(Functor0 *, Callee &c, TRT(CallType::* const &f)()){
 	typedef TRT(CallType::*MemFunc)();
 	return MemberTranslator0<Callee, MemFunc> (c, f);
 }
@@ -140,7 +143,7 @@ makeFunctor(Functor1<P1>,Callee &c, TRT(CallType::* const &f)(TP1)){
 
 template <class P1, class Callee, class TRT, class CallType, class TP1>
 inline MemberTranslator1<P1, const Callee, TRT(CallType::*)(TP1)const>
-makeFunctor(Functor1<P1> *,const Callee &c, TRT(CallType::* const &f)(TP1)const){
+makeFunctor(Functor1<P1> *,const Callee &c, TRT(CallType::* const &f)(TP1) const){
 	typedef TRT(CallType::*MemFunc)(TP1)const;
 	return MemberTranslator1<P1, Callee, MemFunc> (c, f);
 }
