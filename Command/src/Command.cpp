@@ -123,7 +123,7 @@ int main() {
 			_userMan.CheckPasswd(req);
 		else if (cmd==BBSLIST_VAL)
 			_bbs.DisplayList(req);
-		else if (cmd==LOGIN_VAL)
+		else if (cmd==BBSREAD_VAL)
 			_bbs.DisplayItem(req);
 		else
 			cout<<"Not Available Command : " <<cmd << endl;
