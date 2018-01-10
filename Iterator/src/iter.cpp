@@ -8,6 +8,7 @@
 #include "iter.h"
 #include "list.h"
 
+
 using namespace std;
 
 void Iterator::First(){curPos_=0;}

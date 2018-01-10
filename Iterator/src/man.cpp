@@ -5,7 +5,6 @@
  *      Author: daum
  */
 
-
 #include <iostream>
 #include "item.h"
 #include "list.h"
