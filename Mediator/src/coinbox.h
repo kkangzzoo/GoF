@@ -5,6 +5,7 @@
  *      Author: daum
  */
 
+
 #ifndef COINBOX_H_
 #define COINBOX_H_
 

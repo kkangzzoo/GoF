@@ -4,6 +4,7 @@
  *  Created on: 2018. 1. 12.
  *      Author: daum
  */
+
 #include <iostream>
 #include "mediator.h"
 #include "coinbox.h"

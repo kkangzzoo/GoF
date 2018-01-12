@@ -5,6 +5,7 @@
  *      Author: daum
  */
 
+
 #include <iostream>
 #include "lamp.h"
 #include "mixer.h"

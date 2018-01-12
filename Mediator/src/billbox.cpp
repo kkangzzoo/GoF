@@ -5,7 +5,6 @@
  *      Author: daum
  */
 
-
 #include <iostream>
 #include "mediator.h"
 #include "billbox.h"

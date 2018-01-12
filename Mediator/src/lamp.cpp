@@ -7,6 +7,7 @@
 
 #include "lamp.h"
 
+
 Lamp::Lamp(){
 	mixerOutLamp_=resourceLackLamp_=coinLackLamp_=coinFullLamp_=LAMP_OFF;
 }

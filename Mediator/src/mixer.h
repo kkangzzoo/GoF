@@ -5,7 +5,6 @@
  *      Author: daum
  */
 
-
 #ifndef MIXER_CLASS_H
 #define MIXER_CLASS_H
 

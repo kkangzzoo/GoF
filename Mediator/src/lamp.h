@@ -1,6 +1,7 @@
 #ifndef LAMP_CLASS_H
 #define LAMP_CLASS_H
 
+
 class Lamp{
 #define LAMP_ON 1
 #define LAMP_OFF	0
